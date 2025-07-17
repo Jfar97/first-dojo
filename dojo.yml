@@ -1,5 +1,5 @@
 id: example
-name: Example Dojo
+name: Justin Faris First Dojo
 type: example
 award:
   emoji: 😀
@@ -8,3 +8,4 @@ modules:
   - id: hello
   - id: world
   - id: demo
+  - id: level_1
