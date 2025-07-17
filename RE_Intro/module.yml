@@ -1,6 +1,0 @@
-name: RE Intro
-description: "Introductory Challenges for Reverse Engineering"
-challenges:
-  - id: level_1
-    name: Level 1
-
