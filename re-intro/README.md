@@ -1,5 +1,5 @@
 DONE:
-[X]  Create C files for compiled binary to be reverse engineered for levels 1-4
+[X]  Create C files for compiled binary to be reverse engineered for levels 1-4\n
 [X]  Create python scripts to test the hacker's reconstructed files
 [X]  Set up the basic levels 1-4 and get them working to some degree (can get the flag somehow)
 
