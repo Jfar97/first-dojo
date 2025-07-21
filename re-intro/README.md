@@ -21,5 +21,5 @@
 
 
 ## PROGRESS LOG:
-**21 July 2025 - 4:25 P.M.**
+**21 July 2025 - 4:25 P.M.**  
 The basic levels 1-4 have been set up with the compiled binary to be reversed engineered alongside the python scripts that tests the hacker user's reconstructed C file, and am able to get the flag in practice mode. There are still issues to be addressed (see TO-DO)
