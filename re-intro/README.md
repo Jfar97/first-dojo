@@ -11,9 +11,9 @@
 - [ ]  Fix the issue of needing python3 to run the RunTest.py scripts on the levels  
         * \r character issue seems to be some sort of windows and linux system char misalignment? Need to investigate further
 - [ ]  Add more levels  
-        * Challenges where the user must compile their own C file for testing (Perhaps problem that requires using special gcc flags?) 
+        * Challenges where the user must compile their own C file for testing (Perhaps problem that requires using special gcc flags?)   
         * Challenge with multiple C files that interact that must be reverse engineered  
-        * Challenge where users must reverse engineer what different C files do and how they interact              in order to create a MakeFile that links them correctly (Maybe build order dependency or something like that)  
+        * Challenge where users must reverse engineer what different C files do and how they interact              in order to create a MakeFile that links them correctly (Maybe build order dependency or something like that)    
         * Header file reverse engineering challenge where binary requries a header #include that must              be reverse engineered  
         * Library .so file reverse engineer problem where user must reverse engineer what the missing              library file does and reconstruct it
 
