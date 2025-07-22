@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/exec-suid -- /usr/local/bin/python -I
 
 import sys
 import subprocess
