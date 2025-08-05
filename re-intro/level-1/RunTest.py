@@ -19,7 +19,7 @@ exe_file = "temp_exe" # Needs to have name for when subprocess runs it later for
 
 
 # Compile the C file
-compilation = subprocess.run(["gcc", "-o", exe_file, c_file])
+compilation = subprocess.run(["/usr/bin/gcc", "-o", exe_file, c_file])
 if compilation.returncode != 0:
 	print("Compilation failed\n")
 	sys.exit(1)
