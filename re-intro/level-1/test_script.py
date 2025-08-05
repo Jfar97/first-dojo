@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 import os
-os.system("/challenge/test_flag")
+os.system("/test_flag")
