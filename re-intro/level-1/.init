@@ -1,0 +1,12 @@
+#!/usr/local/bin/python
+import pathlib
+import os
+
+# Get the challenge directory (parent of this file)
+dir = pathlib.Path(__file__).parent
+
+# Modify RunTest to rwx--x--x
+os.chmod(dir / "RunTest.py", 0o711)
+
+# Modify get_flag to rwx------
+os.chmod(dir / "get_flag", 0o700)
