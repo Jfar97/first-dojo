@@ -3,7 +3,7 @@ import pathlib
 import os
 
 # Get the challenge directory (parent of this file)
-dir = pathlib.Path(__file__).parent
+#dir = pathlib.Path(__file__).parent
 
 # Modify RunTest to rwx--x--x
 #os.chmod(dir / "RunTest.py", 0o711)
