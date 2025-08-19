@@ -1,4 +1,4 @@
-#!/usr/bin/exec-suid -- /usr/local/bin/python -I
+#!/usr/bin/env python3
 
 import sys
 import subprocess
@@ -53,5 +53,6 @@ for num in testing_nums:
 
 # All tests passed means user reverse engineered the file successfully so give flag
 os.remove(exe_file)
-with open("/flag") as f:
-    print(f.read())
+#with open("/flag") as f:
+    #print(f.read())
+os.system("/challenge/get_flag")
