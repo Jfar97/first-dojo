@@ -44,5 +44,5 @@ for test_byte in test_bytes:
 
 
 os.remove(exe_file)
-with open("/flag") as f:
-    print(f.read())
+os.system("/challenge/get_flag")
+
