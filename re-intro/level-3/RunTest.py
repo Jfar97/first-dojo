@@ -43,5 +43,5 @@ for test_string in test_strings:
 
 
 os.remove(exe_file)
-with open("/flag") as f:
-    print(f.read())
+os.system("/challenge/get_flag")
+
