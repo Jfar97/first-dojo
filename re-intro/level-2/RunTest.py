@@ -51,5 +51,5 @@ while tests_done < 5:
 
 
 os.remove(exe_file)
-with open("/flag") as f:
-    print(f.read())
+os.system("/challenge/get_flag")
+
