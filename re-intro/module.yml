@@ -18,3 +18,7 @@ challenges:
     name: Reconstruct a C File: Level 3
   - id: level-4
     name: Reconstruct a C File: Level 4
+  - id: level-5-rand
+    name: Reconstruct a C File: Level 5
+  - id: duo-level-1-special-nums
+    name: Reconstruct two C Files: Level 1
