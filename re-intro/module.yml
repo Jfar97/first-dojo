@@ -1,5 +1,15 @@
 name: RE Intro
 challenges:
+  - id: string-check
+    name: Examining Executables: Desktop Tools
+  - id: examine-elf
+    name: Examining Executables: Terminal Commands
+  - id: call-flow
+    name: Examining Executables: Code Flow
+  - id: tracing
+    name: Examining Executables: Execution Tracing
+  - id: patching
+    name: Examining Executables: Patching
   - id: level-1
     name: Reconstruct a C File: Level 1
   - id: level-2
