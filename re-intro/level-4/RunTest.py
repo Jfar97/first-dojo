@@ -42,6 +42,22 @@ for test_byte in test_bytes:
 		sys.exit(1)
 
 
+# Failing Test Cases
+fail_tests = [
+	"college",        # Too short (length 7 < 9)
+	"pwncollege",     # Wrong prefix
+	"collegeaa",      # Right prefix but wrong calculation (97+97) % 9 = 5
+	"college11",      # Right prefix but wrong calculation (49+49) % 9 = 8
+	"collegecc"       # Right prefix but wrong calculation (99+99) % 9 = 0
+]
+
+for test_byte in fail_tests:
+	test = subprocess.run([f"./{exe_file}", test_byte], capture_output=True, text=True)
+	if test.stdout.strip() == "pwned":
+		print("Test should have failed but passed\n")
+		os.remove(exe_file)
+		sys.exit(1)
+
 
 os.remove(exe_file)
 os.system("/challenge/get_flag")
