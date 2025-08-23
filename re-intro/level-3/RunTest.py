@@ -41,6 +41,21 @@ for test_string in test_strings:
 		os.remove(exe_file)
 		sys.exit(1)
 
+# Failing Test Cases
+fail_tests = [
+	"pwn",           # Too short (length < 5)
+	"abcdefg",       # Wrong prefix
+	"pwnaa",         # Right prefix but wrong calculation (97+97)/5 = 38.8
+	"pwn11",         # Right prefix but wrong calculation (49+49)/5 = 19.6
+	"pwnbb"          # Right prefix but wrong calculation (98+98)/5 = 39.2
+]
+for test_string in fail_tests:
+	test = subprocess.run([f"./{exe_file}", test_string], capture_output=True, text=True)
+	if test.stdout.strip() == "flag":
+		print("Test should have failed but passed\n")
+		os.remove(exe_file)
+		sys.exit(1)
+
 
 os.remove(exe_file)
 os.system("/challenge/get_flag")
