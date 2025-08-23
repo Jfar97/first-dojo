@@ -55,9 +55,10 @@ five_questions = random.sample(range(10), 5)
 for i in five_questions:
 	question = Questions[i]
 	user_answer = input(question)
-	if user_answer != Answers[i-1]:
+	if user_answer != Answers[i]:
 		print("Incorrect, please try again")
 		exit()
 
 os.system("/challenge/get_flag")
+
 
