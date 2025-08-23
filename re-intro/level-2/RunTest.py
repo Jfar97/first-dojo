@@ -49,6 +49,15 @@ while tests_done < 5:
 
 	tests_done += 1
 
+# Failing Test Cases
+fail_tests = [["1336", "1", "1804"], ["1337", "1", "1000"], ["0", "1", "1804"]]
+for args in fail_tests:
+	test = subprocess.run([f"./{exe_file}"] + args, capture_output=True, text=True)
+	
+	if test.stdout.strip() == "win":
+		print("Test should have failed but passed\n")
+		os.remove(exe_file)
+		sys.exit(1)
 
 os.remove(exe_file)
 os.system("/challenge/get_flag")
