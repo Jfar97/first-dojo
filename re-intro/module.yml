@@ -1,24 +1,24 @@
 name: RE Intro
 challenges:
   - id: string-check
-    name: Examining Executables: Desktop Tools
+    name: "Examining Executables: Desktop Tools"
   - id: examine-elf
-    name: Examining Executables: Terminal Commands
+    name: "Examining Executables: Terminal Commands"
   - id: call-flow
-    name: Examining Executables: Code Flow
+    name: "Examining Executables: Code Flow"
   - id: tracing
-    name: Examining Executables: Execution Tracing
+    name: "Examining Executables: Execution Tracing"
   - id: patching
-    name: Examining Executables: Patching
+    name: "Examining Executables: Patching"
   - id: level-1
-    name: Reconstruct a C File: Level 1
+    name: "Reconstruct a C File: Level 1"
   - id: level-2
-    name: Reconstruct a C File: Level 2
+    name: "Reconstruct a C File: Level 2"
   - id: level-3
-    name: Reconstruct a C File: Level 3
+    name: "Reconstruct a C File: Level 3"
   - id: level-4
-    name: Reconstruct a C File: Level 4
+    name: "Reconstruct a C File: Level 4"
   - id: level-5-rand
-    name: Reconstruct a C File: Level 5
+    name: "Reconstruct a C File: Level 5"
   - id: duo-level-1-special-nums
-    name: Reconstruct two C Files: Level 1
+    name: "Reconstruct two C Files: Level 1"
