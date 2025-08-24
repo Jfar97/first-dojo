@@ -118,6 +118,8 @@ if test.returncode != 1:
     os.remove(receiver_exe)
     sys.exit(1)
 
-
-os.remove(exe_file)
+os.remove(sender_exe)
+os.remove(receiver_exe)
+if os.path.exists("message.txt"):
+    os.remove("message.txt")
 os.system("/challenge/get_flag")
