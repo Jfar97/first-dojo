@@ -1,0 +1,10 @@
+#!/usr/local/bin/python
+
+import pathlib
+import subprocess
+
+dir = pathlib.Path(__file__).parent
+exe_file = dir / "pwn-environment"
+cFile = dir / "simple-file.c"
+
+compilation = subprocess.run(["gcc", "-o", exe_file, cFile])
