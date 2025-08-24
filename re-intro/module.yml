@@ -24,3 +24,5 @@ challenges:
     name: "Reconstruct two C Files: Main and Helper"
   - id: duo-level-2-server
     name: "Reconstruct two C Files: Server and Receiver"
+  - id: duo-level-3-header
+    name: "Reconstruct two C Files and a Header File"
