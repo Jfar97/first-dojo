@@ -7,4 +7,14 @@ dir = pathlib.Path(__file__).parent
 exe_file = dir / "pwn-environment"
 cFile = dir / "simple-file.c"
 
-compilation = subprocess.run(["gcc", "-o", exe_file, cFile])
+print(f"Current directory: {dir}")
+print(f"C file exists: {cFile.exists()}")
+print(f"C file path: {cFile}")
+
+compilation = subprocess.run(["gcc", "-o", str(exe_file), str(cFile)], 
+                           capture_output=True, text=True)
+
+print(f"Return code: {compilation.returncode}")
+print(f"STDOUT: {compilation.stdout}")
+print(f"STDERR: {compilation.stderr}")
+print(f"Executable exists after compilation: {exe_file.exists()}")
