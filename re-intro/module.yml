@@ -21,4 +21,6 @@ challenges:
   - id: level-5-rand
     name: "Reconstruct a C File: Level 5"
   - id: duo-level-1-special-nums
-    name: "Reconstruct two C Files: Level 1"
+    name: "Reconstruct two C Files: Main and Helper"
+  - id: duo0level-2-server
+    name: "Reconstruct two C Files: Server and Receiver"
