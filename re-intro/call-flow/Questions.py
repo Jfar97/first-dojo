@@ -59,6 +59,8 @@ for i in five_questions:
 		print("Incorrect, please try again")
 		exit()
 
-os.system("/challenge/get_flag")
+with open("/flag") as f:
+    print(f.read())
+
 
 
