@@ -4,23 +4,7 @@ import pathlib
 import subprocess
 
 dir = pathlib.Path(__file__).parent
-
-# Create a debug file to confirm the script runs
-(dir / "debug_script_ran.txt").write_text("Script executed successfully!")
-
 exe_file = dir / "pwn-environment"
 cFile = dir / "simple-file.c"
 
-# Write the paths we're using to a file for debugging
-(dir / "debug_paths.txt").write_text(f"exe_file: {exe_file}\ncFile: {cFile}\ncFile exists: {cFile.exists()}")
-
-try:
-    compilation = subprocess.run(["/run/dojo/bin/gcc", "-o", str(exe_file), str(cFile)], 
-                               capture_output=True, text=True, timeout=10)
-    
-    (dir / "debug_compilation_result.txt").write_text(f"Return code: {compilation.returncode}\nSTDOUT: {compilation.stdout}\nSTDERR: {compilation.stderr}")
-except Exception as e:
-    (dir / "debug_error.txt").write_text(f"Error: {str(e)}")
-
-# Create another file to confirm we got past compilation
-(dir / "debug_compilation_done.txt").write_text("Compilation attempted!")
+compilation = subprocess.run(["/run/dojo/bin/gcc", "-o", str(exe_file), str(cFile)])
