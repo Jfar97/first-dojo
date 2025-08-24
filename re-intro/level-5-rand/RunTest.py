@@ -76,7 +76,7 @@ if test.returncode != 1:
 
 # Test 3: Questions dictionary - all should pass
 for param, expected_output in Questions.items():
-	test = subprocess.run([f"./{exe_file}", seed], capture_output=True, text=True)
+	test = subprocess.run([f"./{exe_file}", param], capture_output=True, text=True)
 
 	if test.returncode != 0:
 		print("Test failed to run\n")
