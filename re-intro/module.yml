@@ -10,7 +10,7 @@ challenges:
     name: "Examining Executables: Execution Tracing"
   - id: patching
     name: "Examining Executables: Patching"
-  - id: DiffEnv
+  - id: diff-env
     name: "Examining Executables: Different Environments"
   - id: level-1
     name: "Reconstruct a C File: Level 1"
