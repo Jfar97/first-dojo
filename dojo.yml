@@ -2,7 +2,7 @@ id: example
 name: Justin Faris First Dojo
 type: example
 award:
-  emoji: ⚙
+  emoji: 🔓
 image: pwncollege/challenge-simple
 modules:
   - id: re-intro
