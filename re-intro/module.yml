@@ -8,6 +8,8 @@ challenges:
     name: "Examining Executables: Code Flow"
   - id: tracing
     name: "Examining Executables: Execution Tracing"
+  - id: fix-elf
+    name: "Examining Executables: ELF Header Errors"
   - id: patching
     name: "Examining Executables: Patching"
   - id: diff-env
