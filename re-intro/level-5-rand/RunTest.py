@@ -83,7 +83,7 @@ for param, expected_output in Questions.items():
 		os.remove(exe_file)
 		sys.exit(1)
 
-	if test.stdout.strip() != expected_output:
+	if test.stdout != expected_output:
 		print("Test expected output failed\n")
 		os.remove(exe_file)
 		sys.exit(1)
