@@ -68,7 +68,7 @@ Answers = [
     # 13
     "EXEC_P, HAS_SYMS, D_PAGED",
     # 14
-    "HAS-SYMS, DYNAMIC, D_PAGED",
+    "HAS_SYMS, DYNAMIC, D_PAGED",
 ]
 
 
@@ -84,3 +84,4 @@ while i < 15:
 
 with open("/flag") as f:
     print(f.read())
+
