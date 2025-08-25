@@ -29,29 +29,29 @@ if compilation.returncode != 0:
 
 # TESTING
 passing_tests = {
-    5: "Square: 25\nPlus ten: 15\nFirst digit: 5\nOdd number",
-    6: "Square: 36\nPlus ten: 16\nFirst digit: 6\nEven number",
-    12: "Square: 144\nPlus ten: 22\nFirst digit: 1\nEven number",
-    1234: "Square: 1522756\nPlus ten: 1244\nFirst digit: 1\nEven number",
-    0: "Square: 0\nPlus ten: 10\nFirst digit: 0\nEven number",
-    7: "Square: 49\nPlus ten: 17\nFirst digit: 7\nOdd number",
-    89: "Square: 7921\nPlus ten: 99\nFirst digit: 8\nEven number",
-    333: "Square: 110889\nPlus ten: 343\nFirst digit: 3\nOdd number",
-    9: "Square: 81\nPlus ten: 19\nFirst digit: 9\nOdd number",
-    20: "Square: 400\nPlus ten: 30\nFirst digit: 2\nEven number"
+    5: "Square of 5 is 25\nAdding ten: 15\nFirst digit: 5\nYour number is odd!",
+    6: "Square of 6 is 36\nAdding ten: 16\nFirst digit: 6\nYour number is even!",
+    12: "Square of 12 is 144\nAdding ten: 22\nFirst digit: 1\nYour number is even!",
+    1234: "Square of 1234 is 1522756\nAdding ten: 1244\nFirst digit: 1\nYour number is even!",
+    0: "Square of 0 is 0\nAdding ten: 10\nFirst digit: 0\nYour number is even!",
+    7: "Square of 7 is 49\nAdding ten: 17\nFirst digit: 7\nYour number is odd!",
+    89: "Square of 89 is 7921\nAdding ten: 99\nFirst digit: 8\nYour number is odd!",
+    333: "Square of 333 is 110889\nAdding ten: 343\nFirst digit: 3\nYour number is odd!",
+    9: "Square of 9 is 81\nAdding ten: 19\nFirst digit: 9\nYour number is odd!",
+    20: "Square of 20 is 400\nAdding ten: 30\nFirst digit: 2\nYour number is even!"
 }
 
 failing_tests = {
-    1: "Square: 1\nPlus ten: 11\nFirst digit: 1\nOdd number",
-    2: "Square: 4\nPlus ten: 12\nFirst digit: 2\nEven number",
-    3: "Square: 9\nPlus ten: 13\nFirst digit: 3\nOdd number",
-    4: "Square: 16\nPlus ten: 14\nFirst digit: 4\nEven number",
-    8: "Square: 64\nPlus ten: 18\nFirst digit: 8\nEven number",
-    10: "Square: 100\nPlus ten: 20\nFirst digit: 1\nEven number",
-    11: "Square: 121\nPlus ten: 21\nFirst digit: 1\nOdd number",
-    13: "Square: 169\nPlus ten: 23\nFirst digit: 1\nOdd number",
-    15: "Square: 225\nPlus ten: 25\nFirst digit: 1\nOdd number",
-    100: "Square: 10000\nPlus ten: 110\nFirst digit: 1\nEven number"
+    1: "Square of 1 is 1\nAdding ten: 11\nFirst digit: 1\nYour number is odd!",
+    2: "Square of 2 is 4\nAdding ten: 12\nFirst digit: 2\nYour number is even!",
+    3: "Square of 3 is 9\nAdding ten: 13\nFirst digit: 3\nYour number is odd!",
+    4: "Square of 4 is 16\nAdding ten: 14\nFirst digit: 4\nYour number is even!",
+    8: "Square of 8 is 64\nAdding ten: 18\nFirst digit: 8\nYour number is even!",
+    10: "Square of 10 is 100\nAdding ten: 20\nFirst digit: 1\nYour number is even!",
+    11: "Square of 11 is 121\nAdding ten: 21\nFirst digit: 1\nYour number is odd!",
+    13: "Square of 13 is 169\nAdding ten: 23\nFirst digit: 1\nYour number is odd!",
+    15: "Square of 15 is 225\nAdding ten: 25\nFirst digit: 1\nYour number is odd!",
+    100: "Square of 100 is 10000\nAdding ten: 110\nFirst digit: 1\nYour number is even!"
 }
 
 # Test 1: passing tests
