@@ -41,7 +41,7 @@ Questions = [
 	#17
 	"When you do 'run 2' and it crashes, what is the signal and crash type (Program terminated with signal _, _ _)?",
 	# 18
-	"When you do 'run 2' and it crashes, what is the signal and crash type (Program terminated with signal _, _)?"
+	"When you do 'run 3' and it crashes, what is the signal and crash type (Program terminated with signal _, _)?"
 ]
 
 Answers = [
@@ -97,4 +97,5 @@ while i < 19:
 
 with open("/flag") as f:
     print(f.read())
+
 
