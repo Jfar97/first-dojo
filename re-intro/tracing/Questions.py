@@ -7,7 +7,7 @@ Questions = [
 	# 0
 	"When you do 'run 1' in gdb and it crashes, what are the three rightmost characters of the address it crashes at?",
 	# 1
-	"When you do 'run 1' in gdb and it crashes, what are the three rightmost characters of the address it crashes at?",
+	"When you do 'run 2' in gdb and it crashes, what are the three rightmost characters of the address it crashes at?",
 	# 2
 	"When you do 'run 3' in gdb and it crahses, what are the three rightmost characters of the address it crashes at?",
 	# 3
@@ -97,3 +97,4 @@ while i < 19:
 
 with open("/flag") as f:
     print(f.read())
+
