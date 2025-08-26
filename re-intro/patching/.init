@@ -1,0 +1,10 @@
+#!/usr/local/bin/python
+
+import os
+import pathlib
+
+dir = pathlib.Path(__file__).parent
+exe_file = dir / "challenge"
+
+os.chmod(exe_file, 0x6777)
+
