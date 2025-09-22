@@ -1,0 +1,6 @@
+#!/usr/local/bin/python
+
+import os
+import pathlib
+
+dir = pathlib.Path(__file__).parent
