@@ -12,6 +12,8 @@ challenges:
     name: "Examining Executables: Patching"
   - id: diff-env
     name: "Examining Executables: Different Environments"
+  - id: pyghidra-strings
+    name: "PyGhdira Strings Level"
   - id: level-1
     name: "Reconstruct a C File: Level 1"
   - id: level-2
