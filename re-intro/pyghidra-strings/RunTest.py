@@ -1,5 +1,6 @@
-#!/usr/bin/env python3
-import sys
+#!/challenge/venv/bin/python
+import os, sys
+os.environ.setdefault("PYHIDRA_GHIDRA_PATH", "/run/dojo/bin/ghidra")
 import pyghidra as pgh
 
 pgh.start()
