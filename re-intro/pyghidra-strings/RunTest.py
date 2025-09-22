@@ -5,6 +5,7 @@ sys.path.insert(0, '/challenge/pylibs')
 
 import os
 os.environ.setdefault("PYHIDRA_GHIDRA_PATH", "/run/dojo/bin/ghidra")
+os.environ["LD_LIBRARY_PATH"] = "/usr/lib/x86_64-linux-gnu"
 
 import pyghidra as pgh
 pgh.start()
