@@ -1,6 +1,6 @@
-#!/usr/local/bin/python
+#!/run/dojo/bin/bash
+set -e
 
-import os
-import pathlib
+python3 -m venv /challenge/venv
 
-dir = pathlib.Path(__file__).parent
+/challenge/venv/bin/pip install --no-index --find-links /challenge/PyGhidraContainer jpype1 pyghidra packaging
