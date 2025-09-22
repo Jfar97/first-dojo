@@ -1,10 +1,12 @@
 #!/run/dojo/bin/bash
 set -e
 
-python3 -m venv /challenge/venv
+mkdir -p /challenge/pylibs
+cd /challenge/PyGhidraContainer
 
-/challenge/venv/bin/pip install --no-index --find-links /challenge/PyGhidraContainer jpype1 pyghidra packaging
+python3 -m zipfile -e jpype1-1.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl /challenge/pylibs/
+python3 -m zipfile -e packaging-25.0-py3-none-any.whl /challenge/pylibs/
+python3 -m zipfile -e pyghidra-2.2.0-py3-none-any.whl /challenge/pylibs/
 
-sed -i '1c\#!/challenge/venv/bin/python' /challenge/RunTest.py
-
+export PYTHONPATH="/challenge/pylibs:$PYTHONPATH"
 export PYHIDRA_GHIDRA_PATH="/run/dojo/bin/ghidra"
