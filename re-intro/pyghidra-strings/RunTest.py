@@ -1,8 +1,11 @@
-#!/challenge/venv/bin/python
-import os, sys
-os.environ.setdefault("PYHIDRA_GHIDRA_PATH", "/run/dojo/bin/ghidra")
-import pyghidra as pgh
+#!/usr/bin/python3
+import sys
+sys.path.insert(0, '/challenge/pylibs')
 
+import os
+os.environ.setdefault("PYHIDRA_GHIDRA_PATH", "/run/dojo/bin/ghidra")
+
+import pyghidra as pgh
 pgh.start()
 with pgh.open_project(sys.argv[1]) as proj:
     pdata = proj.getProjectData()
