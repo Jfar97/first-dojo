@@ -4,3 +4,7 @@ set -e
 python3 -m venv /challenge/venv
 
 /challenge/venv/bin/pip install --no-index --find-links /challenge/PyGhidraContainer jpype1 pyghidra packaging
+
+sed -i '1c\#!/challenge/venv/bin/python' /challenge/RunTest.py
+
+export PYHIDRA_GHIDRA_PATH="/run/dojo/bin/ghidra"
