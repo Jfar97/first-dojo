@@ -1,12 +1,11 @@
 #!/run/dojo/bin/bash
 set -e
 
+# Create directory and extract wheels
 mkdir -p /challenge/pylibs
 cd /challenge/PyGhidraContainer
 
+# Extract wheel files
 python3 -m zipfile -e jpype1-1.6.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl /challenge/pylibs/
 python3 -m zipfile -e packaging-25.0-py3-none-any.whl /challenge/pylibs/
 python3 -m zipfile -e pyghidra-2.2.0-py3-none-any.whl /challenge/pylibs/
-
-export PYTHONPATH="/challenge/pylibs:$PYTHONPATH"
-export PYHIDRA_GHIDRA_PATH="/run/dojo/bin/ghidra"
