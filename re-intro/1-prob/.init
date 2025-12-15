@@ -40,7 +40,7 @@ def main():
     s15 = rand_word(6, 12)
 
     cmd = [
-        GCC
+        GCC,
         "-g", "-O0", "-Wall", "-Wextra",
         define_arg("S1", s1),
         define_arg("S2", s2),
