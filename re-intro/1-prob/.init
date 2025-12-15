@@ -1,39 +1,89 @@
 #!/usr/local/bin/python
 
+import os
 import random
 import string
 import subprocess
-from pathlib import Path
 
-DIR = Path(__file__).resolve().parent
+DIR = os.path.dirname(os.path.abspath(__file__))
+C_FILE = os.path.join(DIR, "executable.c")
+OUT_BIN = os.path.join(DIR, "challenge")
+EXPECTEDKEY = os.path.join(DIR, "expected_key")
+ERRLOG = os.path.join(DIR, "init_error.log")
 
-C_FILE = DIR / "executable.c"     # <-- your actual C filename
-OUT_BIN = DIR / "challenge"       # <-- must be "challenge" for the platform
-EXPECTEDKEY = DIR / "expected_key"
-
-def rand_word(min_len=6, max_len=12):
+def rand_word(min_len, max_len):
     alphabet = string.ascii_lowercase
     L = random.randint(min_len, max_len)
     return "".join(random.choice(alphabet) for _ in range(L))
 
-def cpp_define_arg(name: str, value: str) -> str:
-    # subprocess.run([...]) does not need shell escaping
-    return f'-D{name}="{value}"'
+def define_arg(name, value):
+    # gcc should receive something like: -DS1="abcdef"
+    return '-D%s="%s"' % (name, value)
 
 def main():
-    vals = {f"S{i}": rand_word() for i in range(1, 16)}
+    # Generate S1..S15 explicitly (no comprehensions, no f-strings)
+    s1  = rand_word(6, 12)
+    s2  = rand_word(6, 12)
+    s3  = rand_word(6, 12)
+    s4  = rand_word(6, 12)
+    s5  = rand_word(6, 12)
+    s6  = rand_word(6, 12)
+    s7  = rand_word(6, 12)
+    s8  = rand_word(6, 12)
+    s9  = rand_word(6, 12)
+    s10 = rand_word(6, 12)
+    s11 = rand_word(6, 12)
+    s12 = rand_word(6, 12)
+    s13 = rand_word(6, 12)
+    s14 = rand_word(6, 12)
+    s15 = rand_word(6, 12)
 
     cmd = [
         "gcc",
         "-g", "-O0", "-Wall", "-Wextra",
-        *[cpp_define_arg(k, v) for k, v in vals.items()],
-        "-o", str(OUT_BIN),
-        str(C_FILE),
+        define_arg("S1", s1),
+        define_arg("S2", s2),
+        define_arg("S3", s3),
+        define_arg("S4", s4),
+        define_arg("S5", s5),
+        define_arg("S6", s6),
+        define_arg("S7", s7),
+        define_arg("S8", s8),
+        define_arg("S9", s9),
+        define_arg("S10", s10),
+        define_arg("S11", s11),
+        define_arg("S12", s12),
+        define_arg("S13", s13),
+        define_arg("S14", s14),
+        define_arg("S15", s15),
+        "-o", OUT_BIN,
+        C_FILE,
     ]
-    subprocess.run(cmd, check=True)
 
-    expected_key = "".join(vals[f"S{i}"] for i in range(1, 10))
-    EXPECTEDKEY.write_text(expected_key + "\n", encoding="utf-8")
+    try:
+        # works on older Python versions (unlike subprocess.run)
+        subprocess.check_call(cmd)
+    except Exception as e:
+        # Leave breadcrumbs you can read after mount
+        try:
+            f = open(ERRLOG, "w")
+            f.write("C_FILE exists: %r\n" % os.path.exists(C_FILE))
+            f.write("cmd: %r\n" % cmd)
+            f.write("error: %r\n" % e)
+            f.close()
+        except Exception:
+            pass
+        raise
+
+    expected_key = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9
+    f = open(EXPECTEDKEY, "w")
+    f.write(expected_key + "\n")
+    f.close()
+
+    try:
+        os.chmod(OUT_BIN, 0o755)
+    except Exception:
+        pass
 
 if __name__ == "__main__":
     main()
