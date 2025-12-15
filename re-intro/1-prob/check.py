@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/exec-suid -- /usr/local/bin/python -I
 import sys
 from pathlib import Path
 
@@ -19,12 +19,8 @@ def main():
         user_key = sys.stdin.read().strip()
 
     if user_key == expected:
-        try:
-            flag = FLAG_PATH.read_text(encoding="utf-8").strip()
-        except FileNotFoundError:
-            print("internal error: flag missing", file=sys.stderr)
-            sys.exit(1)
-        print(flag)
+        with open("/flag") as f:
+            print(f.read())
     else:
         print("Wrong key.")
 
