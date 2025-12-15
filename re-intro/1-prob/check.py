@@ -6,17 +6,15 @@ EXPECTED_PATH = Path("/challenge/expected_key")
 FLAG_PATH = Path("/flag")
 
 def main():
-    try:
-        expected = EXPECTED_PATH.read_text(encoding="utf-8").strip()
-    except FileNotFoundError:
-        print("internal error: expected key missing", file=sys.stderr)
-        sys.exit(1)
+    args = len(sys.argv)
 
-    # Read the user's guess from stdin
-    if sys.stdin.isatty():
-        user_key = input().strip()
-    else:
-        user_key = sys.stdin.read().strip()
+    if args != 2:
+        print(f"Usage: {sys.argv[0]} <key>")
+        return
+
+    user_key = sys.argv[1]
+    with EXPECTED_PATH.open() as f:
+        expected = f.read().strip()
 
     if user_key == expected:
         with open("/flag") as f:
