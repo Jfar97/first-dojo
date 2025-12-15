@@ -4,49 +4,4 @@ import string
 import subprocess
 from pathlib import Path
 
-C_FILE = Path("/challenge/string_key.c")
-OUT_BIN = Path("/challenge/challenge")
-EXPECTEDKEY = Path("/challenge/expected_key")
 
-def rand_word(min_len=6, max_len=12):
-    # Keep it simple: lowercase only (easy to type; hard to guess).
-    alphabet = string.ascii_lowercase
-    L = random.randint(min_len, max_len)
-    return "".join(random.choice(alphabet) for _ in range(L))
-
-def cpp_define_arg(name: str, value: str) -> str:
-    # Ensure the macro expands to a C string literal.
-    # Example passed to gcc: -DS1=\"abcdef\"
-    return f'-D{name}=\\"{value}\\"'
-
-def main():
-    # Generate all strings S1..S15 (includes decoys + pointer table values)
-    vals = {f"S{i}": rand_word() for i in range(1, 16)}
-
-    # Compile the RE target with all macros injected
-    cmd = [
-        "gcc",
-        "-g", "-O0", "-Wall", "-Wextra",
-        *[cpp_define_arg(k, v) for k, v in vals.items()],
-        "-o", str(OUT_BIN),
-        str(C_FILE),
-    ]
-    subprocess.run(cmd, check=True)
-
-    # Compute expected key: var1..var9 concatenated in the exact order used by build_expected
-    expected_key = (
-        vals["S1"] + 
-        vals["S2"] + 
-        vals["S3"] + 
-        vals["S4"] + 
-        vals["S5"] + 
-        vals["S6"] + 
-        vals["S7"] +
-        vals["S8"] + 
-        vals["S9"]
-    )
-
-    EXPECTEDKEY.write_text(expected_key + "\n", encoding="utf-8")
-
-if __name__ == "__main__":
-    main()
