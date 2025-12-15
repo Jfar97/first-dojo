@@ -10,6 +10,7 @@ C_FILE = os.path.join(DIR, "executable.c")
 OUT_BIN = os.path.join(DIR, "challenge")
 EXPECTEDKEY = os.path.join(DIR, "expected_key")
 ERRLOG = os.path.join(DIR, "init_error.log")
+GCC = "/run/dojo/bin/gcc"
 
 def rand_word(min_len, max_len):
     alphabet = string.ascii_lowercase
@@ -39,7 +40,7 @@ def main():
     s15 = rand_word(6, 12)
 
     cmd = [
-        "gcc",
+        GCC
         "-g", "-O0", "-Wall", "-Wextra",
         define_arg("S1", s1),
         define_arg("S2", s2),
