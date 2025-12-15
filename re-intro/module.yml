@@ -1,5 +1,7 @@
 name: RE Intro
 challenges:
+  - id: 1-prob
+    name: "Problem 1"
   - id: string-check
     name: "Examining Executables: Desktop Tools"
   - id: examine-elf
