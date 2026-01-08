@@ -121,22 +121,21 @@ static void build_expected(char *out) {
     func_e(out);
 }
 
-int main(void) {
-    char input[512];
+int main(int argc, char *argv[]) {
     char expected[512];
 
     build_expected(expected);
 
-    if (!fgets(input, sizeof(input), stdin)) {
+    if(argc != 2) {
+        printf("Usage: ./challenge <key>\n");
         return 1;
     }
 
-    input[strcspn(input, "\n")] = '\0';
-
-    if (strcmp(input, expected) == 0) {
+    if (strcmp(argv[1], expected) == 0) {
         puts("Correct key.");
     } else {
         puts("Wrong key.");
     }
+
     return 0;
 }
