@@ -6,7 +6,7 @@ import string
 import subprocess
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-C_FILE = os.path.join(DIR, "executable.c")
+C_FILE = os.path.join(DIR, "challenge.c")
 OUT_BIN = os.path.join(DIR, "challenge")
 EXPECTEDKEY = os.path.join(DIR, "expected_key")
 ERRLOG = os.path.join(DIR, "init_error.log")
@@ -62,10 +62,8 @@ def main():
     ]
 
     try:
-        # works on older Python versions (unlike subprocess.run)
         subprocess.check_call(cmd)
     except Exception as e:
-        # Leave breadcrumbs you can read after mount
         try:
             f = open(ERRLOG, "w")
             f.write("C_FILE exists: %r\n" % os.path.exists(C_FILE))
