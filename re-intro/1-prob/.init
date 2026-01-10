@@ -6,9 +6,13 @@ import string
 import subprocess
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-C_FILE = os.path.join(DIR, "challenge.c")
+challenge_num = random.randint(0, 2)
+CHALLENGES_DIR = os.path.join(DIR, "challenge_files")
+#C_FILE = os.path.join(DIR, "challenge.c")
+C_FILE = os.path.join(CHALLENGES_DIR, f"{challenge_num}.c")
 OUT_BIN = os.path.join(DIR, "challenge")
 EXPECTEDKEY = os.path.join(DIR, "expected_key")
+VERSION = os.path.join(DIR, "version")
 ERRLOG = os.path.join(DIR, "init_error.log")
 GCC = "/run/dojo/bin/gcc"
 
@@ -74,7 +78,26 @@ def main():
             pass
         raise
 
-    expected_key = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9
+    match challenge_num:
+        case 0:
+            # var1 + var2 + var3 + var4 + var5 + var6 + var7 + var8 + var9
+            expected_key = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9
+            f = open(VERSION, "w")
+            f.write("0" + "\n")
+            f.close()
+        case 1:
+            # var3 + var6 + var1 + var2 + var13 + var1 + var2 + var9 + var4 + var5 + var10
+            expected_key = s3 + s6 + s1 + s2 + s13 + s1 + s2 + s9 + s4 + s5 + s10
+            f = open(VERSION, "w")
+            f.write("1" + "\n")
+            f.close()
+        case 2:
+            # var11 + var13 + var9 + var10 + var4 + var12 + var6 + var4 + var12 + var2 + var1 
+            expected_key = s11 + s13 + s9 + s10 + s4 + s12 + s6 + s4 + s12 + s2 + s1
+            f = open(VERSION, "w")
+            f.write("2" + "\n")
+            f.close()
+
     f = open(EXPECTEDKEY, "w")
     f.write(expected_key + "\n")
     f.close()
