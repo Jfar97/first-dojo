@@ -6,4 +6,4 @@ import shutil
 script_file = "var_rename.py"
 script_dir = "/home/hacker/ghidra_scripts"
 
-shutil.move(script_file, destination_directory)
+shutil.move(script_file, script_dir)
