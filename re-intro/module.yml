@@ -1,5 +1,7 @@
 name: RE Intro
 challenges:
+  - id: var-rename
+    name: "Variable Rename"
   - id: 1-prob
     name: "Problem 1"
   - id: string-check
