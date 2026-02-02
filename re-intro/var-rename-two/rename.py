@@ -32,6 +32,7 @@ class ProgListener(DomainObjectListener):
                 print("Correct change: %s -> %s" % (VAR_TARGET_ADDR, VAR_EXPECTED_NAME))
                 print("Correct! You can also rename functionsjust like with variables. Locate the function named 'functiontarget' and rename it to 'pwnedfunction'.")
                 done_var = True
+            return
 
         if done_var and not done_function:
             sym = currentProgram.getSymbolTable().getPrimarySymbol(FUNC_TARGET_ADDR)
@@ -39,6 +40,7 @@ class ProgListener(DomainObjectListener):
                 print("Correct change: %s -> %s" % (FUNC_TARGET_ADDR, FUNC_EXPECTED_NAME))
                 print("Correct! Finally, just like with variables declared outside of functions, you can also rename function parameters. Locate the parameter named 'parameter_target' in 'pwnedfunction' and rename it to 'pwned_param'.")
                 done_function = True
+            return
 
         if done_function and not done_parameter:
             func = currentProgram.getFunctionManager().getFunctionAt(FUNC_TARGET_ADDR)
@@ -47,6 +49,7 @@ class ProgListener(DomainObjectListener):
                 if params and params[0].getName() == PARAM_EXPECTED_NAME:
                     print("Correct change: parameter -> %s" % (PARAM_EXPECTED_NAME))
                     done_parameter = True
+            return
     
 listener = ProgListener()
 currentProgram.addListener(listener)
