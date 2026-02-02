@@ -1,1 +1,16 @@
 
+#!/usr/local/bin/python
+
+import os
+import shutil
+
+script = "rename.py"
+script_dir = "/home/hacker/ghidra_scripts"
+
+curr_dir = os.path.dirname(os.path.abspath(__file__))
+script_path = os.path.join(curr_dir, script)
+destination = os.path.join(script_dir, script)
+
+shutil.copy2(script_path, destination)
+
+os.chmod(destination, 0o644)
