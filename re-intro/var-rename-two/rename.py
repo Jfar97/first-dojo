@@ -14,8 +14,8 @@ done_var = False
 done_parameter = False
 done_function = False
 
-print("In this challenge, you will have to rename several parts of the binary in order to get the flag.")
-print("The first portion of the executable you should rename is the variable 'target'. Locate this variable inside of main and rename it to 'pwned_var'.")
+#print("In this challenge, you will have to rename several parts of the binary in order to get the flag.")
+#("The first portion of the executable you should rename is the variable 'target'. Locate this variable inside of main and rename it to 'pwned_var'.")
 
     
 class ProgListener(DomainObjectListener):
