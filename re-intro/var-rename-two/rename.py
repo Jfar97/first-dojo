@@ -44,7 +44,7 @@ class ProgListener(DomainObjectListener):
             func = currentProgram.getFunctionManager().getFunctionAt(FUNC_TARGET_ADDR)
             if func:
                 params = func.getParameters()
-                if params[0].getName() == PARAM_EXPECTED_NAME:
+                if params and params[0].getName() == PARAM_EXPECTED_NAME:
                     print("Correct change: parameter -> %s" % (PARAM_EXPECTED_NAME))
                     done_parameter = True
     
