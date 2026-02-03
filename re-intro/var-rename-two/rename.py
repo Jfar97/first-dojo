@@ -29,16 +29,16 @@ class ProgListener(DomainObjectListener):
         if not done_var:
             sym = currentProgram.getSymbolTable().getPrimarySymbol(VAR_TARGET_ADDR)
             if sym and sym.getName() == VAR_EXPECTED_NAME:
-                print("Correct change: %s -> %s" % (VAR_TARGET_ADDR, VAR_EXPECTED_NAME))
-                print("Correct! You can also rename functionsjust like with variables. Locate the function named 'functiontarget' and rename it to 'pwnedfunction'.")
+                #print("Correct change: %s -> %s" % (VAR_TARGET_ADDR, VAR_EXPECTED_NAME))
+                print("Correct! You can also rename functions just like with variables. Locate the function named 'functiontarget' and rename it to 'pwnedfunction'.")
                 done_var = True
             return
 
         if done_var and not done_function:
             sym = currentProgram.getSymbolTable().getPrimarySymbol(FUNC_TARGET_ADDR)
             if sym and sym.getName() == FUNC_EXPECTED_NAME:
-                print("Correct change: %s -> %s" % (FUNC_TARGET_ADDR, FUNC_EXPECTED_NAME))
-                print("Correct! Finally, just like with variables declared outside of functions, you can also rename function parameters. Locate the parameter named 'parameter_target' in 'pwnedfunction' and rename it to 'pwned_param'.")
+                #print("Correct change: %s -> %s" % (FUNC_TARGET_ADDR, FUNC_EXPECTED_NAME))
+                print("Correct! Finally, just like with variables declared outside of functions, you can also rename function parameters. Locate the parameter of 'pwnedfunction' and rename it to 'pwned_param'.")
                 done_function = True
             return
 
@@ -47,7 +47,8 @@ class ProgListener(DomainObjectListener):
             if func:
                 params = func.getParameters()
                 if params and params[0].getName() == PARAM_EXPECTED_NAME:
-                    print("Correct change: parameter -> %s" % (PARAM_EXPECTED_NAME))
+                    #print("Correct change: parameter -> %s" % (PARAM_EXPECTED_NAME))
+                    print("Correct! You have successfully completed the rename challenge")
                     done_parameter = True
             return
     
