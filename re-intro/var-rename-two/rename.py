@@ -1,6 +1,8 @@
 #@runtime Jython
 from ghidra.framework.model import DomainObjectListener
+from ghidra.app.util.exporter import XmlExporter
 from java.lang import Thread
+from java.io import File
 
 # Globals
 VAR_TARGET_ADDR = toAddr(0x00104018)
@@ -60,4 +62,10 @@ while not monitor.isCancelled() and not (done_var and done_parameter and done_fu
     Thread.sleep(1000)
     
 currentProgram.removeListener(listener)
+
+program = getCurrentProgram()
+exporter = XmlExporter()
+output_file = File("/tmp/rename_challenge_completed.xml")
+exporter.export(output_file, program, None, getMonitor())
+
 print("Monitoring stopped")
