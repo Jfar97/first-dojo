@@ -15,7 +15,8 @@ class MyListener(DomainObjectListener):
 
         sym = currentProgram.getSymbolTable().getPrimarySymbol(TARGET_ADDR)
         if sym and sym.getName() == EXPECTED_NAME:
-            print("Correct change: %s -> %s" % (TARGET_ADDR, EXPECTED_NAME))
+            #print("Correct change: %s -> %s" % (TARGET_ADDR, EXPECTED_NAME))
+            print("Correct rename detected")
             done = True
     
 listener = MyListener()
