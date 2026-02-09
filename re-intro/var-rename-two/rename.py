@@ -3,6 +3,7 @@ from ghidra.framework.model import DomainObjectListener
 from ghidra.app.util.exporter import XmlExporter
 from java.lang import Thread
 from java.io import File
+import subprocess
 
 # Globals
 VAR_TARGET_ADDR = toAddr(0x00104018)
