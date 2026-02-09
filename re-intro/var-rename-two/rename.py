@@ -70,7 +70,7 @@ output_file = File("/tmp/rename_challenge_completed.xml")
 exporter.export(output_file, program, None, getMonitor())
 
 # Call python file with elevated privileges to read /tmp/rename_challenge_completed.xml and get the flag if correct
-result = subprocess.run(['/usr/local/bin/python', 'CheckXML.py'], capture_output=True, text=True)
+result = subprocess.run(['/challenge/CheckXML.py'], capture_output=True, text=True)
 
 # Grab the flag from the python file
 # Print the flag to the Ghidra console standard output
