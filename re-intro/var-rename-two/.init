@@ -14,4 +14,4 @@ shutil.copy2(script_path, destination)
 os.remove(script_path)
 
 os.chmod(destination, 0o444)
-os.chmod("/challenge/CheckXML.py", 0o511)
+#os.chmod("/challenge/CheckXML.py", 0o511)
