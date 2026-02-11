@@ -1,4 +1,5 @@
 #!/usr/bin/exec-suid -- /usr/local/bin/python -I
+import os
 
 edited_global = "SYMBOL ADDRESS=\"00104018\" NAME=\"pwned_var\" NAMESPACE=\"\" TYPE=\"global\" SOURCE_TYPE=\"USER_DEFINED\" PRIMARY=\"y\""        
 edited_function = "SYMBOL ADDRESS=\"00101139\" NAME=\"pwnedfunction\" NAMESPACE=\"\" TYPE=\"global\" SOURCE_TYPE=\"USER_DEFINED\" PRIMARY=\"y\""      
