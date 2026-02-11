@@ -20,6 +20,6 @@ with open("/tmp/rename_challenge_completed.xml", "r", encoding="UTF-8") as file:
             break
 
 
-with open("/flag") as flag:
+with open("/flag", "r") as flag:
     print(flag.read())
 #print("flag achieved")
