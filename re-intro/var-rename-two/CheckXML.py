@@ -19,7 +19,7 @@ with open("/tmp/rename_challenge_completed.xml", "r", encoding="UTF-8") as file:
         if global_edited and function_edited and param_edited:
             break
 
-
+print("euid:", os.geteuid())
 with open("/flag", "r") as flag:
     print(flag.read())
 #print("flag achieved")
