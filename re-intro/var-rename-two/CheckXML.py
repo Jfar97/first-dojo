@@ -8,8 +8,6 @@ global_edited = False
 function_edited = False
 param_edited = False
 
-correct_edits = False
-
 with open("/tmp/rename_challenge_completed.xml", "r", encoding="UTF-8") as file:
     for line in file:
         if edited_global in line:
@@ -19,9 +17,8 @@ with open("/tmp/rename_challenge_completed.xml", "r", encoding="UTF-8") as file:
         if edited_param in line:
             param_edited = True
         if global_edited and function_edited and param_edited:
-            correct_edits = True
             break
 
-if correct_edits:
-    with open("/flag") as flag:
-        print(flag.read())
+
+with open("/flag") as flag:
+    print(flag.read())
