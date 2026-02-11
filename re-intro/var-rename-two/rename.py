@@ -69,5 +69,4 @@ out, err = result.communicate()
 
 # Grab the flag from the python file
 # Print the flag to the Ghidra console standard output
-if result.returncode == 0 and out:
-    print(out)
+print(out)
