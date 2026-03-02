@@ -19,9 +19,11 @@ script_destination = os.path.join(script_dir, script)
 executable_path = os.path.join(curr_dir, executable)
 check_xml_path = os.path.join(curr_dir, check_xml)
 addresses_file_path = os.path.join(curr_dir, addresses_file)
+gcc_path = "/run/dojo/bin/gcc"
+nm_path = "/run/dojo/bin/nm"
 
-c_compile = ["gcc", c_path, "-o", executable_path]
-nm_command = ["nm", executable_path]
+c_compile = [gcc_path, c_path, "-o", executable_path]
+nm_command = [nm_path, executable_path]
 
 
 shutil.copy2(script_path, script_destination)
