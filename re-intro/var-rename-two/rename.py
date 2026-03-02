@@ -5,10 +5,14 @@ from java.lang import Thread
 from java.io import File
 import sys
 import subprocess
+import os
+
+addresses_file_path = os.path.join("/challenge/addresses.txt")
 
 # Globals
-VAR_TARGET_ADDR = toAddr(0x00104018)
-FUNC_TARGET_ADDR = toAddr(0x00101139)
+with open(addresses_file_path, "r") as f:
+    VAR_TARGET_ADDR = toAddr(int(f.readline().strip(), 16))
+    FUNC_TARGET_ADDR = toAddr(int(f.readline().strip(), 16))
 
 VAR_EXPECTED_NAME = "pwned_var"
 PARAM_EXPECTED_NAME = "pwned_param"
