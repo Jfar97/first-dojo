@@ -4,6 +4,8 @@ challenges:
     name: "Variable Rename"
   - id: var-rename-two
     name: "Multiple Rename"
+  - id: auto-script-test
+    name: "Auto Script Test"
   - id: 1-prob
     name: "Problem 1"
   - id: string-check
