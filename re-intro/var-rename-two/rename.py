@@ -7,7 +7,7 @@ import sys
 import subprocess
 import os
 
-addresses_file_path = os.path.join("/challenge/addresses.txt")
+addresses_file_path = "/challenge/addresses.txt"
 
 # Globals
 with open(addresses_file_path, "r") as f:
