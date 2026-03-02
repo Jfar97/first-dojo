@@ -2,16 +2,55 @@
 
 import os
 import shutil
+import subprocess
 
+c_file = "source.c"
 script = "rename.py"
-script_dir = "/home/hacker/ghidra_scripts"
+executable = "executable"
+check_xml = "CheckXML.py"
+addresses_file = "addresses.txt"
 
 curr_dir = os.path.dirname(os.path.abspath(__file__))
+script_dir = "/home/hacker/ghidra_scripts"
+
+c_path = os.path.join(curr_dir, c_file)
 script_path = os.path.join(curr_dir, script)
-destination = os.path.join(script_dir, script)
+script_destination = os.path.join(script_dir, script)
+executable_path = os.path.join(curr_dir, executable)
+check_xml_path = os.path.join(curr_dir, check_xml)
+addresses_file_path = os.path.join(curr_dir, addresses_file)
 
-shutil.copy2(script_path, destination)
+c_compile = ["gcc", c_path, "-o", executable_path]
+nm_command = ["nm", executable_path]
+
+
+shutil.copy2(script_path, script_destination)
 os.remove(script_path)
+os.chmod(script_destination, 0o444)
 
-os.chmod(destination, 0o444)
-#os.chmod("/challenge/CheckXML.py", 0o511)
+
+subprocess.run(c_compile, check=True)
+nmOutput = subprocess.run(nm_command, check=True, capture_output=True, text=True)
+nmStdout = nmOutput.stdout
+
+
+targets = {"global_target", "functiontarget"}
+nm_addresses = {}
+
+for line in nmStdout.splitlines():
+    parts = line.split()
+
+    if len(parts) == 3:
+        addr, sym_type, name = parts
+        if name in targets:
+            nm_addresses[name] = "0010" + format(int(addr, 16), "x")[-4:]
+
+global_targ_address = nm_addresses.get("global_target")
+func_targ_address = nm_addresses.get("functiontarget")
+
+
+with open(addresses_file_path, "w") as f:
+    f.write(f"{global_targ_address}\n")
+    f.write(f"{func_targ_address}\n")
+
+
