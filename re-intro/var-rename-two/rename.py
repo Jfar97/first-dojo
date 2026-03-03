@@ -1,7 +1,4 @@
 #@runtime Jython
-#@category pwn.college
-#@menupath Tools.pwn.college.Start Rename Monitor
-#@description RUN THIS FIRST: Arms the rename monitor for this pwn.college Ghidra challenge.
 
 from ghidra.framework.model import DomainObjectListener
 from ghidra.app.util.exporter import XmlExporter
