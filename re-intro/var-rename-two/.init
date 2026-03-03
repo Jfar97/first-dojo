@@ -5,7 +5,7 @@ import shutil
 import subprocess
 
 c_file = "source.c"
-script = "rename.py"
+script = "1-rename.py"
 executable = "executable"
 check_xml = "CheckXML.py"
 addresses_file = "addresses.txt"
