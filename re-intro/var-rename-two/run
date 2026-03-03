@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+import subprocess
+
+GHIDRA_HOME = "/nix/store/cbqgq0nxkhbd8s8s2bpwi2vxg0rrnfsi-ghidra-11.4.2"
+
+subprocess.run([f"{GHIDRA_HOME}/support/analyzeHeadless",
+                "/home/hacker", "pwnproj",
+                "-import", "/challenge/executable",
+                "-overwrite"], check=True)
+
+subprocess.run([f"{GHIDRA_HOME}/bin/ghidraRun",
+                "/home/hacker/pwnproj.gpr"], check=True)
