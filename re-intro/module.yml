@@ -6,8 +6,8 @@ challenges:
     name: "Multiple Rename"
   - id: auto-script-test
     name: "Auto Script Test"
-  - id: 1-prob
-    name: "Problem 1"
+  - id: 1-Rename-Lesson
+    name "Ghidra Rename"
   - id: string-check
     name: "Examining Executables: Desktop Tools"
   - id: examine-elf
