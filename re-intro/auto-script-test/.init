@@ -1,38 +1,50 @@
 #!/usr/local/bin/python
 
+# Imports
 import os
 import shutil
 import subprocess
 
+# challenge/ contents
 script = "Autoscript.py"
 zip_name = "ghidra_11.4.2_PUBLIC_20260312_AutoScripting.zip"
 tool_config = "_auto_start.tcd"
 c_file = "source.c"
+executable = "executable"
 
+# Directory declarations
 curr_dir = os.path.dirname(os.path.abspath(__file__))
-
 script_dir = "/home/hacker/ghidra_scripts"
 ext_dir = "/home/hacker/.config/ghidra/ghidra_11.4.2_NIX/Extensions"
 tools_dir = "/home/hacker/.config/ghidra/ghidra_11.4.2_NIX/tools"
 
+# Path declarations
 zip_path = os.path.join(curr_dir, zip_name)
 script_path = os.path.join(curr_dir, script)
-script_destination = os.path.join(script_dir, script)
-unzip_path = "/run/dojo/bin/unzip"
 c_path = os.path.join(curr_dir, c_file)
-gcc_path = "/run/dojo/bin/gcc"
 tool_path = os.path.join(curr_dir, tool_config)
+executable_path = os.path.join(curr_dir, executable)
+unzip_path = "/run/dojo/bin/unzip"
+gcc_path = "/run/dojo/bin/gcc"
+
+# Destination path declarations
 tool_destination = os.path.join(tools_dir, tool_config)
+script_destination = os.path.join(script_dir, script)
 
+
+# SETUP
+# Create extensions/ if it does not exist in user settings and then unzip extension into it to install extension and plugin
 os.makedirs(ext_dir, exist_ok=True)
-
-shutil.copy2(script_path, script_destination)
-os.chmod(script_destination, 0o444)
-
 unzip_command = [unzip_path, "-o", zip_path, "-d", ext_dir]
 subprocess.run(unzip_command, check=True)
 
+# Move script to ghidra_scripts
+shutil.copy2(script_path, script_destination)
+os.chmod(script_destination, 0o444)
+
+# Compile executable for project creation
 c_compile = [gcc_path, c_path, "-o", executable_path]
 subprocess.run(c_compile, check=True)
 
+# Move tool configuratio into tools/ inside user settings
 shutil.copy2(tool_path, tool_destination)
