@@ -5,13 +5,33 @@ import shutil
 import subprocess
 
 script = "Autoscript.py"
-zip = "ghidra_11.4.2_PUBLIC_20260312_AutoScripting.zip"
+zip_name = "ghidra_11.4.2_PUBLIC_20260312_AutoScripting.zip"
 
 curr_dir = os.path.dirname(os.path.abspath(__file__))
-script_dir = "/home/hacker/ghidra_scripts"
 
+script_dir = "/home/hacker/ghidra_scripts"
+zip_path = os.path.join(curr_dir, zip_name)
 script_path = os.path.join(curr_dir, script)
 script_destination = os.path.join(script_dir, script)
-zip_path = os.path.join(curr_dir, zip)
 
+ghidra_base = "/home/hacker/.ghidra"
+ext_parent = None
 
+if os.path.isdir(ghidra_base):
+    for name in os.listdir(ghidra_base):
+        if name.startswith(".ghidra_11.4.2"):
+            ext_parent = os.path.join(ghidra_base, name)
+            break
+
+if ext_parent is None:
+    ext_parent = os.path.join(ghidra_base, ".ghidra_11.4.2_PUBLIC")
+
+ext_dir = os.path.join(ext_parent, "Extensions")
+
+os.makedirs(script_dir, exist_ok=True)
+os.makedirs(ext_dir, exist_ok=True)
+
+shutil.copy2(script_path, script_destination)
+os.chmod(script_destination, 0o444)
+
+subprocess.run(["unzip", "-o", zip_path, "-d", ext_dir], check=True)
