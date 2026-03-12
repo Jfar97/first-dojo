@@ -16,7 +16,7 @@ script_destination = os.path.join(script_dir, script)
 
 ghidra_base = "/home/hacker/.ghidra"
 ext_parent = None
-
+'''
 if os.path.isdir(ghidra_base):
     for name in os.listdir(ghidra_base):
         if name.startswith(".ghidra_11.4.2"):
@@ -35,3 +35,4 @@ shutil.copy2(script_path, script_destination)
 os.chmod(script_destination, 0o444)
 
 subprocess.run(["unzip", "-o", zip_path, "-d", ext_dir], check=True)
+'''
