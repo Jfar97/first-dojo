@@ -1,1 +1,17 @@
+#!/usr/local/bin/python
+
+import os
+import shutil
+import subprocess
+
+script = "Autoscript.py"
+zip = "ghidra_11.4.2_PUBLIC_20260312_AutoScripting.zip"
+
+curr_dir = os.path.dirname(os.path.abspath(__file__))
+script_dir = "/home/hacker/ghidra_scripts"
+
+script_path = os.path.join(curr_dir, script)
+script_destination = os.path.join(script_dir, script)
+zip_path = os.path.join(curr_dir, zip)
+
 
