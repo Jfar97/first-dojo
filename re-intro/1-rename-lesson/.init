@@ -1,1 +1,89 @@
-#
+#!/usr/local/bin/python
+
+# IMPORTS
+import os
+import shutil
+import subprocess
+
+
+# DECLARATIONS
+# challenge/ Files Declarations
+c_file = "source.c"
+script = "Autoscript.py"
+executable = "executable"
+check_xml = "CheckXML.py"
+addresses_file = "addresses.txt"
+zip_name = "ghidra_11.4.2_PUBLIC_20260312_AutoScripting.zip"
+tool_config = "_auto_start.tcd"
+
+# Directory Declarations
+curr_dir = os.path.dirname(os.path.abspath(__file__))
+script_dir = "/home/hacker/ghidra_scripts"
+ext_dir = "/home/hacker/.config/ghidra/ghidra_11.4.2_NIX/Extensions"
+tools_dir = "/home/hacker/.config/ghidra/ghidra_11.4.2_NIX/tools"
+
+# challenge/ Files Path Declarations
+c_path = os.path.join(curr_dir, c_file)
+script_path = os.path.join(curr_dir, script)
+executable_path = os.path.join(curr_dir, executable)
+check_xml_path = os.path.join(curr_dir, check_xml)
+addresses_file_path = os.path.join(curr_dir, addresses_file)
+zip_path = os.path.join(curr_dir, zip_name)
+tool_path = os.path.join(curr_dir, tool_config)
+
+# Tool Path Declarations
+gcc_path = "/run/dojo/bin/gcc"
+nm_path = "/run/dojo/bin/nm"
+unzip_path = "/run/dojo/bin/unzip"
+
+# Destination Path Declarations
+script_destination = os.path.join(script_dir, script)
+tool_destination = os.path.join(tools_dir, tool_config)
+
+# Command Declarations
+c_compile = [gcc_path, c_path, "-o", executable_path]
+nm_command = [nm_path, executable_path]
+unzip_command = [unzip_path, "-o", zip_path, "-d", ext_dir]
+
+
+# CHALLENGE SETUP
+# Create extensions/ if it does not exist in user settings and then unzip extension into it to install extension and plugin
+os.makedirs(ext_dir, exist_ok=True)
+subprocess.run(unzip_command, check=True)
+
+# Copy the script into ghidra_scripts
+shutil.copy2(script_path, script_destination)
+os.chmod(script_destination, 0o444)
+
+# Copy the tool config into tools
+shutil.copy2(tool_path, tool_destination)
+
+# Compile the C file to get the executable
+subprocess.run(c_compile, check=True)
+
+# Use nm to get the addresses of the variable and function that need to be renamed, and write those to a file for the script to read
+nmOutput = subprocess.run(nm_command, check=True, capture_output=True, text=True)
+nmStdout = nmOutput.stdout
+
+targets = {"global_target", "functiontarget"}
+nm_addresses = {}
+
+for line in nmStdout.splitlines():
+    parts = line.split()
+
+    if len(parts) == 3:
+        addr, sym_type, name = parts
+        if name in targets:
+            nm_addresses[name] = "0010" + format(int(addr, 16), "x")[-4:]
+
+global_targ_address = nm_addresses.get("global_target")
+func_targ_address = nm_addresses.get("functiontarget")
+
+
+with open(addresses_file_path, "w") as f:
+    f.write(f"{global_targ_address}\n")
+    f.write(f"{func_targ_address}\n")
+
+
+
+
