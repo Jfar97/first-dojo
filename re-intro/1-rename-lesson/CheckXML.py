@@ -22,14 +22,23 @@ param_edited = False
 with open("/tmp/rename_challenge_completed.xml", "r", encoding="UTF-8") as file:
     for line in file:
         if edited_global in line:
-            global_edited = True
+            if(not global_edited):
+                print("Global variable renamed correctly!")
+                global_edited = True
         if edited_function in line:
-            function_edited = True
+            if(not function_edited):
+                print("Function renamed correctly!")
+                function_edited = True
         if edited_param in line:
-            param_edited = True
+            if(not param_edited):
+                print("Parameter renamed correctly!")
+                param_edited = True
         if global_edited and function_edited and param_edited:
             break
 
-print("euid:", os.geteuid())
-with open("/flag", "r") as flag:
-    print(flag.read())
+#print("euid:", os.geteuid())
+if global_edited and function_edited and param_edited:
+    with open("/flag", "r") as flag:
+        print(flag.read())
+else:
+    print("INCORRECT")
