@@ -64,9 +64,14 @@ class ProgListener(DomainObjectListener):
                         stderr=subprocess.PIPE
                     )
                     out, err = result.communicate()
+                    out = out.strip()
 
-                    print(out)
-                    print(err)
+                    if out == "INCORRECT":
+                        print("Something was not renamed correctly. Please try again.")
+
+                    else:
+                        print(out)
+                    
             return
 
 listener = ProgListener()
