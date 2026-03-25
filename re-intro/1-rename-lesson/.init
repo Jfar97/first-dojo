@@ -13,7 +13,7 @@ script = "Autoscript.py"
 executable = "executable"
 check_xml = "CheckXML.py"
 addresses_file = "addresses.txt"
-zip_name = "ghidra_11.4.2_PUBLIC_20260312_AutoScripting.zip"
+zip_name = "ghidra_11.4.2_PUBLIC_20260324_AutoScripting.zip"
 tool_config = "_auto_start.tcd"
 
 # Directory Declarations
